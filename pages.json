@@ -1,0 +1,79 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+	},
+
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "智慧梁场管理系统",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/bragelist/bragelist",
+			"style": {
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "梁片管理",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
+		},
+
+
+		{
+			"path": "pages/brageinfo/brageinfo",
+			"style": {
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "梁片详情",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/login",
+			"style": {
+				"navigationBarTitleText": "智慧梁场管理系统",
+				"backgroundColor": "#004097"
+			}
+		},
+
+		{
+			"path": "pages/brageadd/brageadd",
+			"style": {
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "新增梁片",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
+		}
+
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "智慧梁场管理系统",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

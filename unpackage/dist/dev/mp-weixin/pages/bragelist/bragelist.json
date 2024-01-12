@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#004097",
+  "navigationBarTitleText": "梁片管理",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

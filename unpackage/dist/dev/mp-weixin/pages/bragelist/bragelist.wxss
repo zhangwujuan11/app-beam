@@ -1,0 +1,88 @@
+
+.con{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.topserch{
+	width: 100%;
+	background-color: #004097;
+	display: flex;
+	justify-content: center;
+	padding-top:30rpx;
+	padding-bottom: 12rpx;
+}
+.topserch .ser{
+	width: 702rpx;
+}
+.ul{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.ul .li{
+	width: 702rpx;
+	background-color: white;
+	border-radius: 16rpx;
+	margin-top: 20rpx;
+}
+.li .bu{
+	border-bottom: 1px solid #EBEBEB;
+	line-height: 82rpx;
+	text-indent: 24rpx;
+	color: #666666;
+	font-size: 32rpx;
+}
+.li .licon{
+	padding: 24rpx;
+}
+.liconline{
+	display: flex;
+	color: #1A1A1A;
+	font-size: 32rpx;
+	margin: 24rpx 0;
+}
+.liconline text{
+	display: block;
+	width: 160rpx;
+	color: #999999;
+}
+.addlist{
+	position: fixed;
+	right: 0;
+	bottom: 118rpx;
+	width: 136rpx;
+	height: 136rpx;
+}
+.liconline image{
+	width: 114rpx;
+	height: 114rpx;
+}
+.bt-li{
+	width:100%;
+	display: flex;
+	justify-content: flex-end;
+}
+.bt-licon{
+	width: 90%;
+	display: flex;
+}
+.bt-li button{
+	width: 180rpx;
+	height: 80rpx;
+	color: #004097;
+	border: 1px solid #004097;
+	border-radius: 8rpx;
+	background-color: white;
+	line-height: 80rpx;
+	font-size: 28rpx;
+}
+.bt-li .goadd{
+	background-color: #004097;
+	color: white;
+}
+

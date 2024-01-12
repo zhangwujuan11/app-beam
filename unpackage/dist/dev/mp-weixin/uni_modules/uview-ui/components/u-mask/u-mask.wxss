@@ -1,0 +1,19 @@
+.u-mask.data-v-9c19d32e {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.u-mask-show.data-v-9c19d32e {
+  opacity: 1;
+}
+.u-mask-zoom.data-v-9c19d32e {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
