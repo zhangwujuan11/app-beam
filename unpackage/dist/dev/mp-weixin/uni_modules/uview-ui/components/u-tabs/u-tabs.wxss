@@ -1,0 +1,35 @@
+view.data-v-48634e29,
+scroll-view.data-v-48634e29 {
+  box-sizing: border-box;
+}
+.data-v-48634e29::-webkit-scrollbar,.data-v-48634e29::-webkit-scrollbar,.data-v-48634e29::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-appearance: none;
+  background: transparent;
+}
+.u-scroll-box.data-v-48634e29 {
+  position: relative;
+}
+.u-scroll-view.data-v-48634e29 {
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+}
+.u-tab-item.data-v-48634e29 {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  transition-property: background-color, color;
+}
+.u-tab-bar.data-v-48634e29 {
+  position: absolute;
+  bottom: 0;
+}
+.u-tabs-scroll-flex.data-v-48634e29 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+

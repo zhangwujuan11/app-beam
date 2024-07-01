@@ -66,6 +66,118 @@
 					}
 				}
 			}
+		},
+		{
+			"path" : "pages/inspection/inspection",
+			"style" : 
+			{
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "工序检验",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+
+			}
+		},
+		{
+			"path" : "pages/Audit/Audit",
+			"style" : 
+			{
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "工序审核",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/AuditLog/AuditLog",
+			"style" : 
+			{
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "审核日志",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/Auditinfo/Auditinfo",
+			"style" :
+			{
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "工序审核",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/mine/mine",
+			"style" : 
+			{
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/Agreement/Agreement",
+			"style" : 
+			{
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/brageDetails/brageDetails",
+			"style": {
+				"navigationBarBackgroundColor": "#004097",
+				"navigationBarTitleText": "梁片详情",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"autoBackButton": true,
+						"titleColor": "#fff"
+					}
+				}
+			}
 		}
 
 	],
@@ -74,6 +186,24 @@
 		"navigationBarTitleText": "智慧梁场管理系统",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+	  "color": "#C0C4CC",
+	  "selectedColor": "#339cfe",
+	  "backgroundColor": "#ffffff",
+	  "list": [{
+	      "pagePath": "pages/index/index",
+	      "iconPath": "static/home.png",
+	      "selectedIconPath": "static/home_blue.png",
+	      "text": "首页"
+	    },
+	    {
+	      "pagePath": "pages/mine/mine",
+	      "iconPath": "static/tab-my.png",
+	      "selectedIconPath": "static/tab-my-current.png",
+	      "text": "我的"
+	    }
+	  ]
 	},
 	"uniIdRouter": {}
 }

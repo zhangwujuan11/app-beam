@@ -1,0 +1,12 @@
+{
+  "navigationBarBackgroundColor": "#004097",
+  "navigationBarTitleText": "工序审核",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "u-input": "/uni_modules/uview-ui/components/u-input/u-input",
+    "u-upload": "/uni_modules/uview-ui/components/u-upload/u-upload",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

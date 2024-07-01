@@ -1,0 +1,13 @@
+
+.Opinions{
+	background-color: white;
+	padding: 20rpx;
+	margin: 15rpx 20rpx;
+}
+.buts{
+	display: flex;
+}
+/* .upload{
+	margin: 0 auto;
+} */
+

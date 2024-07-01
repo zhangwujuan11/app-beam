@@ -3,10 +3,10 @@
 		<view class="topserch">
 			<view class="ser">
 				<u-search 
-				v-model="queryform.beamCode"
+				v-model="queryform.keyFields"
 				shape="square" 
 				bg-color="#fff" 
-				placeholder="请输入梁片编号" 
+				placeholder="请输入关键词" 
 				@custom="getlist()"
 				:action-style="{background:'#5FB760',color:'white',padding:'5px 0','border-radius': '4px'}">
 					
@@ -14,13 +14,20 @@
 			</view>
 		</view>
 		<view class="ul">
-			<view class="li" v-for="(item,index) in tabledata" :key="index">
+			<view class="li" v-for="(item,index) in tabledata" :key="index" @click.stop="golook(item.beamId,item.planId,1)">
 				<view class="bu">
-					{{item.beamCode}}
+					<text>{{item.beamCode}}</text>
+					<view style="padding-right: 24upx;">
+						<u-tag text="初始" mode="light" v-if="item.completeStatus == 0"/>
+						<u-tag text="未派发" mode="light" v-if="item.completeStatus == 1"/>
+						<u-tag text="施工中" mode="light" v-if="item.completeStatus == 20"/>
+						<u-tag text="完成" mode="light" v-if="item.completeStatus == 30"/>
+					</view>
 				</view>
 				<view class="licon">
 					<view class="liconline">
-						<text>梁片名称</text>{{item.beamName}}
+						<text>梁片名称</text><span style="color:blue">{{item.beamName}}</span>
+						<u-icon name="arrow-right" size="20"></u-icon>
 					</view>
 					<!-- <view class="liconline">
 						<text>入库日期</text>{{item.beamName}}
@@ -31,22 +38,23 @@
 						<image  v-if="item.qrCodeImg" :src="item.qrCodeImg"></image>
 					</view>
 					<view class="bt-li">
-						<view class="bt-licon">
-							<button v-if="item.qrCodeImg" class="goadd" @click="jieabngqrcode(item.beamId,item.beamCode, item.qrId)">解绑二维码</button>
-							<button v-if="!item.qrCodeImg" class="goadd" @click="bindqrcode(item.beamId)">绑定二维码</button>
-							<button 
-							style="background-color: #0091F2;color: white;border: none;" 
-							v-if="item.completeStatus == null ||item.completeStatus == '0'" 
-							class="goinfo" 
-							@click="addorderbtn(item.beamId)">生成工单</button>
-							<button v-if="item.completeStatus == '1' ||item.completeStatus == '20'" class="goinfo" @click="goinfo(item.beamId)">工单派发</button>
-							<button class="goadd" @click="golook(item.beamId)">工单查询</button>
-							<!-- <button class="goadd"  @click="goadd(item.beamId)">修改</button> -->
-						</view>
+							<view class="bt-licon">
+								<button v-if="item.qrCodeImg" class="goadd" @click.stop="jieabngqrcode(item.beamId,item.beamCode, item.qrId)">解绑二维码</button>
+								<button v-if="!item.qrCodeImg" class="goadd" @click.stop="bindqrcode(item.beamId)">绑定二维码</button>
+								<button 
+								style="background-color: #0091F2;color: white;border: none;" 
+								v-if="(item.completeStatus == null ||item.completeStatus == '0')&&item.planId" 
+								class="goinfo" 
+								@click.stop="addorderbtn(item.beamId)">生成工单</button>
+								<button v-if="(item.completeStatus == '1' ||item.completeStatus == '20')&&item.planId" class="goinfo" @click.stop="goinfo(item.beamId)">工单派发</button>
+								<button class="goadd" @click.stop="golook(item.beamId,item.planId) " v-if="(item.completeStatus != null ) && item.planId ">工单查询</button>
+								</view>
+							</view>
 					</view>
 				</view>
 			</view>
-		</view>
+			<br>
+			<span>没有更多了</span>
 		<!-- <image class="addlist" src="../../static/camer.png" @click="goadd"></image> -->
 		<u-toast ref="uToast" />
 	</view>
@@ -55,21 +63,29 @@
 <script>
 	import { bragelist, binded, jibinded, addorder } from '@/api/index.js'
 	import { toast, showConfirm, tansParams } from '@/utils/common'
+	import constant from '../../utils/constant'
 	export default {
 		data() {
 			return {
 				queryform:{
 					pageNum:1,
 					pageSize:10,
-					beamCode:''
+					keyFields:'',
+					bridgeId:uni.getStorageSync('brigeId')
 				},
 				tabledata:[],
 				total:0
 			}
 		},
+		onBackPress(e) {
+			uni.reLaunch({
+				url:'/pages/index/index'
+			})
+			return true
+		}, 
 		onLoad(option) {
 			if(option.beamid){
-				bragelist({"beamId":option.beamid}).then(res=>{
+				bragelist({"beamId":option.beamid,bridgeId:uni.getStorageSync('brigeId')}).then(res=>{
 					this.tabledata=res.data.items
 					this.total=res.data.total
 					this.$refs.uToast.show({
@@ -80,11 +96,9 @@
 				this.getlist()
 			}
 		},
-		mounted() {
-			
-		},
 		methods: {
 			getlist(){
+				// this.queryform.pageNum = 1 
 				bragelist(this.queryform).then(res=>{
 					this.tabledata=res.data.items
 					this.total=res.data.total
@@ -93,24 +107,30 @@
 			
 			// 工单派发
 			addorderbtn(e){
-				console.log(e)
 				addorder({'beamId':e}).then(res=>{
 					if(res.code == 200){
 						this.$refs.uToast.show({
 							title: "工单已生成"
 						})
+						this.queryform.pageSize = this.queryform.pageNum * this.queryform.pageSize
+						let _pageNum = this.queryform.pageNum 
+						this.queryform.pageNum = 1
 						this.getlist()
+						this.queryform.pageNum = _pageNum
+						this.queryform.pageSize = 10
 					}
 				})
 			},
 			goinfo(e){
 				uni.navigateTo({
-					url: '/pages/brageinfo/brageinfo?id=' + e
+					url: '/pages/brageinfo/brageinfo?id=' +e
 				})
 			},
-			golook(e){
+			golook(e,planId,isf){
 				uni.navigateTo({
-					url: '/pages/brageinfo/brageinfo?showcheck=false&id=' + e
+					// url:'/pages/brageDetails/brageDetails'
+					// url: '/pages/brageinfo/brageinfo?showcheck=false&id=' + e+"&planId="+planId+"&isf="+isf
+					url: '/pages/brageDetails/brageDetails?showcheck=false&id=' + e+"&planId="+planId+"&isf="+isf
 				})
 			},
 			goadd(e){
@@ -125,16 +145,29 @@
 						let string=JSON.stringify(res.result)
 						let index = string.lastIndexOf("=");
 						let needid = string.substring(index+1, string.length-1);
-						binded({
-							qrCodeId:needid,
-							beamId:e
-						}).then(ress=>{
-							console.log(ress)
-							this.$refs.uToast.show({
-								title: "绑定成功"
-							})
+						if(res.result.includes('qrId')){
+							binded({
+								qrCodeId:needid,
+								beamId:e
+							}).then(ress=>{
+								this.$refs.uToast.show({
+									title: "绑定成功"
+								})
+							this.queryform.pageSize = this.queryform.pageNum * this.queryform.pageSize
+							let _pageNum = this.queryform.pageNum 
+							this.queryform.pageNum = 1
 							this.getlist()
-						})
+							this.queryform.pageNum = _pageNum
+							this.queryform.pageSize = 10
+							}).catch(err=>{
+								console.log(err.data)
+							})
+						}else{
+							this.$refs.uToast.show({
+								title: "二维码信息错误"
+							})
+						}
+						
 					},
 					fail: (err) => {
 						this.$refs.uToast.show({
@@ -148,7 +181,9 @@
 			},
 			// 解绑二维码
 			jieabngqrcode(e,i,y){
-				showConfirm('确认解绑梁片编号为' + i + '的二维码?').then(res => {
+				// ♯
+				i = i.replace('#','♯')
+				showConfirm('确认解绑梁板编号为' + i +'的二维码?').then(res => {
 				  if (res.confirm) {
 					  jibinded({
 							qrCodeId:y,
@@ -157,7 +192,12 @@
 							this.$refs.uToast.show({
 								title: "解绑成功"
 							})
+							this.queryform.pageSize = this.queryform.pageNum * this.queryform.pageSize
+							let _pageNum = this.queryform.pageNum 
+							this.queryform.pageNum = 1
 							this.getlist()
+							this.queryform.pageNum = _pageNum
+							this.queryform.pageSize = 10
 						})
 				  }
 				})
@@ -251,7 +291,9 @@
 		line-height: 82upx;
 		text-indent: 24upx;
 		color: #666666;
-		font-size: 32upx;
+		font-size: 0.8rem;
+		display: flex;
+		justify-content: space-between;
 	}
 	.li .licon{
 		padding: 24upx;
@@ -259,7 +301,7 @@
 	.liconline{
 		display: flex;
 		color: #1A1A1A;
-		font-size: 32upx;
+		font-size: 0.8rem;
 		margin: 24upx 0;
 	}
 	.liconline text{
@@ -281,24 +323,41 @@
 	.bt-li{
 		width:100%;
 		display: flex;
-		justify-content: flex-end;
+		justify-content:flex-end;
+		margin-bottom: 15upx;
 	}
 	.bt-licon{
-		width: 90%;
+		/* width: 90%; */
 		display: flex;
+		/* position: relative; */
+		/* height: 50upx; */
+		/* background-color: red; */
+	}
+	.bt-li button:only-child{
+		/* display: block; */
 	}
 	.bt-li button{
-		width: 180upx;
-		height: 80upx;
+/* 		width: 180upx;
+		height: 80upx; */
 		color: #004097;
 		border: 1px solid #004097;
 		border-radius: 8upx;
 		background-color: white;
-		line-height: 80upx;
-		font-size: 28upx;
+		line-height: 50upx;
+		font-size: 0.8rem;
+		
+		height: 50upx;
+		width:188upx;
+		/* margin:0; */
+		margin-left: 15rpx;
+		/* margin-right: 20rpx; */
+		/* margin:0 0 1rpx 50upx; */
 	}
 	.bt-li .goadd{
 		background-color: #004097;
 		color: white;
+	}
+	/deep/.u-mode-light-primary{
+		text-indent:0;
 	}
 </style>

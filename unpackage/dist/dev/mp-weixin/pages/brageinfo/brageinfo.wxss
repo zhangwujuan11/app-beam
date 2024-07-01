@@ -28,7 +28,8 @@
 .gongxusep.data-v-db4e507c {
 	width: 702rpx;
 	display: flex;
-	height:850rpx;
+	height:-webkit-fit-content;
+	height:fit-content;
 	justify-content: space-between;
 }
 .gongxusepteo.data-v-db4e507c{
@@ -44,6 +45,8 @@
 .forminfotwo.data-v-db4e507c {
 	margin-top: 0;
 	width: 672rpx;
+	height:-webkit-fit-content;
+	height:fit-content;
 }
 .btnbox.data-v-db4e507c {
 	width: 100%;
@@ -51,6 +54,7 @@
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	z-index: 99;
 }
 .btnbox .con.data-v-db4e507c {
 	width: 702rpx;
@@ -71,5 +75,30 @@
 	position:relative;
 	font-weight: 500;
 	padding-left:20px
+}
+.ybtn.data-v-db4e507c{
+	width:180rpx;
+	font-size: 14px;
+}
+.data-v-db4e507c .u-collapse-body {
+	max-height:740rpx !important;
+}
+.data-v-db4e507c .uni-select__selector{
+	z-index: 999 !important;
+}
+.data-v-db4e507c .Opinions .u-form-item__body{
+	display: block !important;
+}
+.data-v-db4e507c .u-cell{
+	padding: 0 !important;
+}
+.data-v-db4e507c .u-cell__value{
+	text-align: left !important;
+}
+.data-v-db4e507c .u-cell{
+	height: 35px !important;
+}
+.data-v-db4e507c .u-cell-hover {
+	background-color: white !important;
 }
 

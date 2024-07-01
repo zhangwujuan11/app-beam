@@ -1,0 +1,14 @@
+{
+  "navigationBarBackgroundColor": "#004097",
+  "navigationBarTitleText": "审核日志",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "u-form": "/uni_modules/uview-ui/components/u-form/u-form",
+    "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
+    "u-tag": "/uni_modules/uview-ui/components/u-tag/u-tag",
+    "u-image": "/uni_modules/uview-ui/components/u-image/u-image",
+    "u-link": "/uni_modules/uview-ui/components/u-link/u-link",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+  }
+}

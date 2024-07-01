@@ -52,6 +52,8 @@
     "mp-weixin" : {
         "appid" : "wx7b991d1f58a95b53",
         "setting" : {
+			"ignoreDevUnusedFiles":false,
+			"ignoreUploadUnusedFiles":false,
             "urlCheck" : false
         },
         "usingComponents" : true

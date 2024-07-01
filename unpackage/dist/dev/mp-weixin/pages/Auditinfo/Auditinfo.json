@@ -1,0 +1,19 @@
+{
+  "navigationBarBackgroundColor": "#004097",
+  "navigationBarTitleText": "工序审核",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "u-form": "/uni_modules/uview-ui/components/u-form/u-form",
+    "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
+    "u-collapse": "/uni_modules/uview-ui/components/u-collapse/u-collapse",
+    "u-collapse-item": "/uni_modules/uview-ui/components/u-collapse-item/u-collapse-item",
+    "u-tag": "/uni_modules/uview-ui/components/u-tag/u-tag",
+    "uni-data-select": "/uni_modules/uni-data-select/components/uni-data-select/uni-data-select",
+    "u-input": "/uni_modules/uview-ui/components/u-input/u-input",
+    "u-upload": "/uni_modules/uview-ui/components/u-upload/u-upload",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "audit-tn": "/pages/Audit/Audit"
+  }
+}

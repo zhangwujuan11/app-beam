@@ -7,10 +7,10 @@
 					<view v-if="current" class="uni-select__input-text">{{current}}</view>
 					<view v-else class="uni-select__input-text uni-select__input-placeholder">{{typePlaceholder}}</view>
 					<view v-if="current && clear && !disabled" @click.stop="clearVal" >
-						<uni-icons type="clear" color="#c0c4cc" size="24"/>
+						<u-icon type="clear" color="#c0c4cc" size="24"/>
 					</view>
 					<view v-else>
-						<uni-icons :type="showSelector? 'top' : 'bottom'" size="14" color="#999" />
+						<u-icon :type="showSelector? 'top' : 'bottom'" size="14" color="#999" />
 					</view>
 				</view>
 				<view class="uni-select--mask" v-if="showSelector" @click="toggleSelector" />

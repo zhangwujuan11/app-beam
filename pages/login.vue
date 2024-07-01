@@ -25,14 +25,15 @@
                     <image src="../static/pwd_icon.png"
                     style="width: 40upx;height: 40upx;position: absolute;top: 28upx;left: 15upx;"></image>
                 </view>
-                <view  style="margin-top:90upx;">
+                <view  style="margin-top:90upx;margin-bottom: 40upx;">
 					<u-button type="primary" size="default" @click="handleLogin" :disabled="!checked">登录</u-button>
-                    <!-- <button  hover-class="btn-hover" formType="submit" >登录</button> -->
                 </view>
 				<view class="isready">
 					<u-checkbox v-model="checked" ></u-checkbox>
 					<view>
-						我已阅读并同意 <text>《用户服务协议》</text>及<text>《隐私政策》</text>
+						我已阅读并同意 
+						<text @click="handleUserAgrement">《用户服务协议》</text>及
+						<text @click="handlePrivacy">《隐私政策》</text>
 					</view>
 				</view>
             </form>
@@ -63,16 +64,20 @@
       // this.getCode()
     },
     methods: {
-      // 隐私协议
-      // handlePrivacy() {
-      //   let site = this.globalConfig.appInfo.agreements[0]
-      //   this.$tab.navigateTo(`/pages/common/webview/index?title=${site.title}&url=${site.url}`)
-      // },
-      // // 用户协议
-      // handleUserAgrement() {
-      //   let site = this.globalConfig.appInfo.agreements[1]
-      //   this.$tab.navigateTo(`/pages/common/webview/index?title=${site.title}&url=${site.url}`)
-      // },
+      // 隐私政策
+      handlePrivacy() {
+        const PrivacyURL = 'https://test.ayingtech.com/pc/ys.html'
+        uni.navigateTo({
+        	url:'/pages/Agreement/Agreement?title=隐私政策&url='+PrivacyURL
+        })
+      },
+      // 用户协议
+      handleUserAgrement() {
+		const PrivacyURL = 'https://test.ayingtech.com/pc/user.html'
+		uni.navigateTo({
+			url:'/pages/Agreement/Agreement?title=用户协议&url='+PrivacyURL
+		})
+      },
       // 登录方法
       async handleLogin() {
         if (this.loginForm.username === "") {
@@ -115,6 +120,7 @@
       },
       // 登录成功后，处理函数
       loginSuccess(result) {
+
         // 设置用户信息
         this.$store.dispatch('GetInfo').then(res => {
 			uni.reLaunch({

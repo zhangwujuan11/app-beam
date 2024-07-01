@@ -1,0 +1,53 @@
+
+.content.data-v-6ffe70a6 {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		padding-bottom: 150rpx;
+}
+.forminfo.data-v-6ffe70a6 {
+		width: 702rpx;
+		background-color: white;
+		border-radius: 16rpx;
+		margin-top: 24rpx;
+		padding: 24rpx 32rpx;
+		box-sizing: border-box;
+}
+.qrimg.data-v-6ffe70a6 {
+		width: 144rpx;
+		height: 144rpx;
+}
+.collapesimg.data-v-6ffe70a6 {
+		width: 10rpx;
+		height: 36rpx;
+		position: absolute;
+		margin-top: 20rpx;
+}
+.u-flex.data-v-6ffe70a6 {
+		align-items: flex-start;
+		flex-direction:column;
+}
+.nodata.data-v-6ffe70a6{
+		line-height: 64rpx;
+		text-align: center;
+		width: 100%;
+}
+.Logsli.data-v-6ffe70a6{
+		width: 100%;
+		background-color: white;
+		border-radius: 16rpx;
+		line-height: 48rpx;
+		padding: 30rpx;
+		margin: 20rpx 0;
+		box-sizing: border-box;
+}
+.Logsli text.data-v-6ffe70a6{
+		margin-right: 25rpx;
+}
+.AuditLog.data-v-6ffe70a6{
+			width: 702rpx;
+			margin-top: 20rpx;
+}
+

@@ -3,7 +3,7 @@ import request from '@/utils/request'
 // 首页比例
 export function speed (data){
 	return request({
-		url:'/v1/applet/beams/speed',
+		url:'/v1/applet/beams/speed/' + data,
 		method:'get'
 	})
 }
@@ -31,7 +31,7 @@ export function qrinfo(data){
 	return request({
 		url:'/v1/h5/beams/' + data,
 		method:'get',
-		 headers: { isToken: false }
+		headers: { isToken: false }
 	})
 }
 // 修改梁片信息
@@ -136,5 +136,13 @@ export function sentedtasks(data){
 		url:'/v1/applet/beam/tasks',
 		method:'put',
 		data:data
+	})
+}
+
+// 获取全部桥梁下拉数据
+export function allbriges(){
+	return request({
+		url:'/v1/applet/beam/bridges/select',
+		method:'get',
 	})
 }

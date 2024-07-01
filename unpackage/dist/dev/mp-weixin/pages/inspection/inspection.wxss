@@ -1,0 +1,57 @@
+
+.topserch.data-v-2b700274{
+	width: 100%;
+	background-color: #004097;
+	display: flex;
+	justify-content: center;
+	padding-top:30rpx;
+	padding-bottom: 12rpx;
+}
+.topserch .ser.data-v-2b700274{
+	width: 702rpx;
+}
+.inspection_view.data-v-2b700274{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.beams.data-v-2b700274{
+	display: flex;
+	flex-direction: column;
+	padding: 20rpx 40rpx 20rpx 40rpx;
+	box-sizing: border-box;
+	background-color: white;
+	margin: 20rpx 20rpx 0rpx 20rpx;
+	font-size: 0.8rem;
+	border-radius: 30rpx;
+}
+.beams_title.data-v-2b700274{
+	margin-bottom: 20rpx;
+	/* border: 1upx solid  black; */
+	border-bottom: 1px solid #EBEBEB;
+	line-height: 62rpx;
+	color: #666666;
+	font-size: 0.8rem;
+}
+.bts_view.data-v-2b700274{
+	margin: 20rpx 0 10rpx 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+.bts.data-v-2b700274{
+	/* width:250upx; */
+	font-size: 0.8rem;
+	/* height: 10upx; */
+	/* width:150upx; */
+	/* margin:0 0upx 0upx 20upx; */
+	margin-left: 40rpx;
+}
+.data-v-2b700274 .u-badge{
+	right: 120rpx !important;
+	/* display: none !important; */
+}
+.data-v-2b700274 .u-size-default.data-v-2bf0e569{
+	height: 60rpx;
+}
+
